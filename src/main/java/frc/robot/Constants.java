@@ -29,4 +29,8 @@ public final class Constants {
     public static class KrakenX60 {
         public static final AngularVelocity kFreeSpeed = RPM.of(6000);
     }
+
+    public static class KrakenX44{
+        public static final AngularVelocity kFreeSpeed = RPM.of(7758);
+    }
 }

@@ -30,7 +30,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Command.InterruptionBehavior;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import frc.robot.Constants.KrakenX60;
+import frc.robot.Constants.KrakenX44;
 import frc.robot.Ports;
 
 public class Hanger extends SubsystemBase {
@@ -79,15 +79,15 @@ public class Hanger extends SubsystemBase {
             )
             .withMotionMagic(
                 new MotionMagicConfigs()
-                    .withMotionMagicCruiseVelocity(KrakenX60.kFreeSpeed)
-                    .withMotionMagicAcceleration(KrakenX60.kFreeSpeed.per(Second))
+                    .withMotionMagicCruiseVelocity(KrakenX44.kFreeSpeed)
+                    .withMotionMagicAcceleration(KrakenX44.kFreeSpeed.per(Second))
             )
             .withSlot0(
                 new Slot0Configs()
                     .withKP(10)
                     .withKI(0)
                     .withKD(0)
-                    .withKV(12.0 / KrakenX60.kFreeSpeed.in(RotationsPerSecond)) // 12 volts when requesting max RPS
+                    .withKV(12.0 / KrakenX44.kFreeSpeed.in(RotationsPerSecond)) // 12 volts when requesting max RPS
             );
 
         motor.getConfigurator().apply(config);
