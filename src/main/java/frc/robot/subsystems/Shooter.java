@@ -35,17 +35,18 @@ public class Shooter extends SubsystemBase {
     private final VelocityVoltage velocityRequest = new VelocityVoltage(0).withSlot(0);
     private final VoltageOut voltageRequest = new VoltageOut(0);
 
-    private double dashboardTargetRPM = 0.0;
+    //Dobbs you poor soul when you look at this; this is the number that actually changes the RPM
+    private double dashboardTargetRPM = 2600.0;
 
     public Shooter() {
         leftMotor = new TalonFX(Ports.kShooterLeft, Ports.kRoboRioCANBus);
         middleMotor = new TalonFX(Ports.kShooterMiddle, Ports.kRoboRioCANBus);
         rightMotor = new TalonFX(Ports.kShooterRight, Ports.kRoboRioCANBus);
-        motors = List.of(leftMotor, middleMotor, rightMotor);
+        motors = List.of(leftMotor, middleMotor, rightMotor); 
 
         configureMotor(leftMotor, InvertedValue.CounterClockwise_Positive);
         configureMotor(middleMotor, InvertedValue.Clockwise_Positive);
-        configureMotor(rightMotor, InvertedValue.Clockwise_Positive);
+        configureMotor(rightMotor, InvertedValue.CounterClockwise_Positive);
 
         SmartDashboard.putData(this);
     }
