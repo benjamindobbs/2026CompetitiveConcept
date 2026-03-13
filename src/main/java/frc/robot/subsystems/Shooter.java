@@ -39,12 +39,14 @@ public class Shooter extends SubsystemBase {
     private double dashboardTargetRPM = 2600.0;
 
     public Shooter() {
+    
         leftMotor = new TalonFX(Ports.kShooterLeft, Ports.kRoboRioCANBus);
         middleMotor = new TalonFX(Ports.kShooterMiddle, Ports.kRoboRioCANBus);
         rightMotor = new TalonFX(Ports.kShooterRight, Ports.kRoboRioCANBus);
-        motors = List.of(leftMotor, middleMotor, rightMotor); 
-
-        configureMotor(leftMotor, InvertedValue.CounterClockwise_Positive);
+        motors = List.of(leftMotor, middleMotor, rightMotor);
+        //181 Update: In our sheme, motors are labeled from robot orientation, below I swapped
+        //Left and Rights directions to reflect that.
+        configureMotor(leftMotor, InvertedValue.Clockwise_Positive);
         configureMotor(middleMotor, InvertedValue.Clockwise_Positive);
         configureMotor(rightMotor, InvertedValue.CounterClockwise_Positive);
 
